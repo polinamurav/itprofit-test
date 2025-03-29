@@ -43,8 +43,6 @@ module.exports = {
         new CopyPlugin({
                 patterns: [
                     {from: "./src/js", to: "js"},
-                    // {from: "./node_modules/jquery/dist/jquery.min.js", to: "js"},
-                    {from: "./node_modules/inputmask/dist/inputmask.min.js", to: "js"},
                 ],
             }
         ),
