@@ -5,6 +5,7 @@ const app = express();
 const port = 9090;
 
 app.use(cors());
+app.use(express.json());
 
 app.post("/api/registration", (req, res) => {
     if (Math.random() > 0.5) {
@@ -13,7 +14,10 @@ app.post("/api/registration", (req, res) => {
         setTimeout(() => {
             res.send({
                 status: "error",
-                message: "Bad request",
+                fields: {
+                    email: "Некорректный email",
+                    phone: "Введите корректный номер телефона"
+                }
             });
         }, Math.random() * 1000);
 
@@ -24,7 +28,7 @@ app.post("/api/registration", (req, res) => {
         res.statusCode = 200;
         res.send({
             status: "success",
-            message: "You are registered",
+            message: "Ваша заявка успешно отправлена",
         });
     }, Math.random() * 1000);
 });
